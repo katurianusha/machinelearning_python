@@ -1,0 +1,9 @@
+import numpy as np
+from google.colab import files
+from IPython.display import FileLink
+all_labels = np.concatenate((predicted_labels_train, predicted_labels_test))
+df2 = pd.DataFrame({'Review': test_data, 'Predicted Label': predicted_labels_test})
+df1 = pd.DataFrame({'Review': train_data, 'Predicted Label': train_labels})
+concatenated_df = pd.concat([df1, df2])
+concatenated_df.to_csv('merged_file.csv', index=False)
+files.download('merged_file.csv')
